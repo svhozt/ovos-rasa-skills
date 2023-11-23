@@ -44,7 +44,7 @@ def get_version():
     return "0.1.0"
 
 setup(
-    name='ovos-rasa-skill',
+    name='ovos_rasa_skill',
     version=get_version(),
     description='OVOS Skill for Rasa Integration',
     url=URL,  # Replace with your repository URL
