@@ -1,4 +1,4 @@
-from ovos_workshop.skills.ovos import MycroftSkill
+from ovos_workshop.skills.ovos import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 import socketio
 
@@ -28,7 +28,7 @@ class RasaSocketClient:
         return self.response
 
 
-class RasaSkill(MycroftSkill):
+class RasaSkill(OVOSSkill):
     def __init__(self):
         super(RasaSkill, self).__init__("RasaSkill")
         # Update this URL to point to your Rasa server
