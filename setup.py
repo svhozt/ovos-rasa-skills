@@ -33,7 +33,7 @@ setup(
     author='Your Name',
     author_email='your.email@example.com',
     license='MIT',
-    packages=['ovos-rasa_skill'],  # Replace with the name of your skill's Python package
+    packages=['ovos_rasa_skill'],  # Replace with the name of your skill's Python package
     zip_safe=True,
     install_requires=required("requirements.txt"),
     long_description="An OVOS skill for integrating with Rasa using Socket.IO",
