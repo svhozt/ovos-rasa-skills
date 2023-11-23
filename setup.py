@@ -2,6 +2,7 @@
 import os
 
 from setuptools import setup
+from os import walk, path
 
 
 URL = "https://github.com/ravindukathri/ovos-rasa-skill"
@@ -19,6 +20,23 @@ def required(requirements_file):
     with open(os.path.join(BASEDIR, requirements_file), 'r') as f:
         requirements = f.read().splitlines()
         return [pkg for pkg in requirements if pkg.strip() and not pkg.startswith("#")]
+    
+def find_resource_files():
+    resource_base_dirs = ("locale", "dialog")
+    base_dir = path.dirname(__file__)
+    package_data = ["*.json"]
+    for res in resource_base_dirs:
+        if path.isdir(path.join(base_dir, res)):
+            for (directory, _, files) in walk(path.join(base_dir, res)):
+                if files:
+                    package_data.append(
+                        path.join(directory.replace(base_dir, "").lstrip('/'),
+                                  '*'))
+    return package_data
+
+
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 def get_version():
     """Find the version of the package"""
@@ -29,15 +47,17 @@ setup(
     name='ovos-rasa-skill',
     version=get_version(),
     description='OVOS Skill for Rasa Integration',
-    url='https://github.com/ravindukathri/ovos-rasa-skill',  # Replace with your repository URL
+    url=URL,  # Replace with your repository URL
     author='Your Name',
     author_email='your.email@example.com',
-    license='MIT',
-    packages=['ovos_rasa_skill'],  # Replace with the name of your skill's Python package
+    license='Apache-2.0',
+    packages=[SKILL_PKG],  # Replace with the name of your skill's Python package
     zip_safe=True,
+    include_package_data=True,
     install_requires=required("requirements.txt"),
     long_description="An OVOS skill for integrating with Rasa using Socket.IO",
     long_description_content_type='text/markdown',
+    keywords='ovos skill plugin',
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )
 
