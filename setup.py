@@ -15,11 +15,11 @@ SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
 # BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
-def required(requirements_file):
-    """Read requirements file and remove comments and empty lines."""
-    with open(os.path.join(BASEDIR, requirements_file), 'r') as f:
-        requirements = f.read().splitlines()
-        return [pkg for pkg in requirements if pkg.strip() and not pkg.startswith("#")]
+# def required(requirements_file):
+#     """Read requirements file and remove comments and empty lines."""
+#     with open(os.path.join(BASEDIR, requirements_file), 'r') as f:
+#         requirements = f.read().splitlines()
+#         return [pkg for pkg in requirements if pkg.strip() and not pkg.startswith("#")]
     
 def find_resource_files():
     resource_base_dirs = ("locale", "dialog")
