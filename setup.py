@@ -6,14 +6,14 @@ from os import walk, path
 
 
 URL = "https://github.com/ravindukathri/ovos-rasa-skill"
-SKILL_CLAZZ = "RasaSkill"  # needs to match __init__.py class name
+SKILL_CLAZZ = "OVOSRasaSkill"  # needs to match __init__.py class name
 PYPI_NAME = "ovos_rasa_skill"  # pip install PYPI_NAME
 
 # below derived from github url to ensure standard skill_id
 SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
 SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
+# BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 def required(requirements_file):
     """Read requirements file and remove comments and empty lines."""
@@ -44,7 +44,7 @@ def get_version():
     return "0.1.0"
 
 setup(
-    name='ovos_rasa_skill',
+    name=PYPI_NAME,
     version=get_version(),
     description='OVOS Skill for Rasa Integration',
     url=URL,  # Replace with your repository URL

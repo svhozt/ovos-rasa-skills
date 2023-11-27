@@ -29,7 +29,7 @@ class RasaSocketClient:
         return self.response
 
 
-class RasaSkill(OVOSSkill):
+class OVOSRasaSkill(OVOSSkill):
     def __init__(self, *args, **kwargs):
         """The __init__ method is called when the Skill is first constructed.
         Note that self.bus, self.skill_id, self.settings, and
@@ -43,6 +43,7 @@ class RasaSkill(OVOSSkill):
     #     super(RasaSkill, self).__init__("RasaSkill")
     #     # Update this URL to point to your Rasa server
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
+        self.learning = True
 
     @intent_handler(IntentBuilder('TalkToRasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
