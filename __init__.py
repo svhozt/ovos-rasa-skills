@@ -45,7 +45,7 @@ class OVOSRasaSkill(OVOSSkill):
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
         self.learning = True
 
-    @intent_handler(IntentBuilder('TalkToRasa').require('TalkToRasa'))
+    @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
         user_utterance = message.data.get('utterance')
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
