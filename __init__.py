@@ -1,3 +1,4 @@
+from ovos_utils import classproperty
 from ovos_workshop.skills.ovos import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 from ovos_utils.intents import IntentBuilder
@@ -45,6 +46,7 @@ class OVOSRasaSkill(OVOSSkill):
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
         self.learning = True
 
+    @property
     @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
         user_utterance = message.data.get('utterance')
