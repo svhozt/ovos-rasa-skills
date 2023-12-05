@@ -66,7 +66,7 @@ setup(
     version=get_version(),
     description='OVOS Skill for Rasa Integration',
     url=URL,  # Replace with your repository URL
-    author='Your Name',
+    author=SKILL_AUTHOR,
     author_email='your.email@example.com',
     license='Apache-2.0',
     packages=[SKILL_PKG],  # Replace with the name of your skill's Python package
