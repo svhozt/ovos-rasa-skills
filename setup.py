@@ -15,11 +15,6 @@ SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
-print(SKILL_AUTHOR)
-print(SKILL_PKG)
-print(PLUGIN_ENTRY_POINT)
-print(BASEDIR)
-
 def required(requirements_file):
     """Read requirements file and remove comments and empty lines."""
     with open(os.path.join(BASEDIR, requirements_file), 'r') as f:
