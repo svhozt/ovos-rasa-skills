@@ -42,7 +42,6 @@ class OVOSRasaSkill(OVOSSkill):
     #     super(RasaSkill, self).__init__("RasaSkill")
     #     # Update this URL to point to your Rasa server
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
-    #   self.learning = True
 
         if self.skill_id and bus:
             self._startup(bus, self.skill_id)
