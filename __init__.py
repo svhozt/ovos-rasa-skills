@@ -31,28 +31,41 @@ class RasaSocketClient:
 
 
 class OVOSRasaSkill(OVOSSkill):
-      
-    #def initialize(self):
-    def __init__(self, *args, **kwargs, skill_id: str = "ovos-rasa-skill"):  ##HW
-        super().__init__(*args, **kwargs)  ##HW
-        self.skill_id = skill_id
-     
-
-    # def __init__(self):
-    #     super(RasaSkill, self).__init__("RasaSkill")
-    #     # Update this URL to point to your Rasa server
+    
+    def initialize(self):
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
-        if self.skill_id and bus:
-            self._startup(bus, self.skill_id)
-            
-    def initialize(self):
-        
     @property
     @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
         user_utterance = message.data.get('utterance')
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
         self.speak(rasa_response)
+
+
+
+    
+    # #def initialize(self):
+    # def __init__(self, *args, **kwargs, skill_id: str = "ovos-rasa-skill"):  ##HW
+    #     super().__init__(*args, **kwargs)  ##HW
+    #     self.skill_id = skill_id
+     
+
+    # # def __init__(self):
+    # #     super(RasaSkill, self).__init__("RasaSkill")
+    # #     # Update this URL to point to your Rasa server
+    #     self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
+
+    #     if self.skill_id and bus:
+    #         self._startup(bus, self.skill_id)
+            
+    # def initialize(self):
+        
+    # @property
+    # @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
+    # def handle_ask_rasa_intent(self, message):
+    #     user_utterance = message.data.get('utterance')
+    #     rasa_response = self.rasa_client.send_to_rasa(user_utterance)
+    #     self.speak(rasa_response)
 
 
