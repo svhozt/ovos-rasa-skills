@@ -67,7 +67,7 @@ setup(
     description='OVOS Skill for Rasa Integration',
     url=URL,  # Replace with your repository URL
     package_dir={SKILL_PKG: ""},
-    packages=[SKILL_PKG, f"{SKILL_PKG}.util"],
+    packages=[SKILL_PKG],
     package_data={SKILL_PKG: required()},
     author='Your Name',
     author_email='your.email@example.com',
