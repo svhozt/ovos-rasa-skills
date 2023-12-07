@@ -26,32 +26,6 @@ def required(requirements_file):
         requirements = f.read().splitlines()
         return [pkg for pkg in requirements if pkg.strip() and not pkg.startswith("#")]
 
-# def get_requirements(requirements_filename: str):
-#     requirements_file = path.join(path.abspath(path.dirname(__file__)),
-#                                   requirements_filename)
-#     with open(requirements_file, 'r', encoding='utf-8') as r:
-#         requirements = r.readlines()
-#     requirements = [r.strip() for r in requirements if r.strip()
-#                     and not r.strip().startswith("#")]
-#     if 'MYCROFT_LOOSE_REQUIREMENTS' in os.environ:
-#         print('USING LOOSE REQUIREMENTS!')
-#         requirements = [r.replace('==', '>=').replace('~=', '>=') for r in requirements]
-#     return requirements
-
-
-# def find_resource_files():
-#     resource_base_dirs = ("locale", "dialog")
-#     base_dir = path.dirname(__file__)
-#     package_data = ["*.json"]
-#     for res in resource_base_dirs:
-#         if path.isdir(path.join(base_dir, res)):
-#             for (directory, _, files) in walk(path.join(base_dir, res)):
-#                 if files:
-#                     package_data.append(
-#                         path.join(directory.replace(base_dir, "").lstrip('/'),
-#                                   '*'))
-#     return package_data
-
 
 with open("README.md", "r") as f:
     long_description = f.read()
