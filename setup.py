@@ -66,11 +66,13 @@ setup(
     version=get_version(),
     description='OVOS Skill for Rasa Integration',
     url=URL,  # Replace with your repository URL
+    package_dir={SKILL_PKG: ""},
+    package_data={SKILL_PKG: required=()},
+    packages=[SKILL_PKG],  # Replace with the name of your skill's Python package
     author='Your Name',
     author_email='your.email@example.com',
     license='Apache-2.0',
-    packages=[SKILL_PKG],  # Replace with the name of your skill's Python package
-    zip_safe=True,
+    zip_safe=True, #
     include_package_data=True,
     install_requires=required("requirements.txt"),
     long_description="An OVOS skill for integrating with Rasa using Socket.IO",
