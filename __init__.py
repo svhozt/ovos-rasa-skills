@@ -4,10 +4,6 @@ from ovos_workshop.decorators import intent_handler
 from ovos_utils.intents import IntentBuilder
 import socketio
 
-from neon_utils.message_utils import request_from_mobile, dig_for_message
-from neon_utils.skills.neon_skill import NeonSkill
-from neon_utils.user_utils import get_user_prefs, get_message_user
-
 
 class RasaSocketClient:
     def __init__(self, rasa_url):
@@ -34,13 +30,13 @@ class RasaSocketClient:
         return self.response
 
 
-class OVOSRasaSkill(NeonSkill):
+class OVOSRasaSkill(OVOSSkill):
     # def __init__(self):
     #     super().__init__('OVOSRasaSkill')
     
     # def initialize(self):
     def __init__(self, *args, **kwargs):  ##HW
-        NeonSkill.__init__(*args, **kwargs)  ##HW
+        super().__init__(*args, **kwargs)  ##HW
      
 
     # def __init__(self):
