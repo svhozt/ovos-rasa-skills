@@ -32,9 +32,10 @@ class RasaSocketClient:
 
 class OVOSRasaSkill(OVOSSkill):
       
-    def initialize(self):
-    # def initialize(self, *args, **kwargs):  ##HW
-    #     super().__init__(*args, **kwargs)  ##HW
+    #def initialize(self):
+    def __init__(self, *args, **kwargs, skill_id: str = "ovos-rasa-skill"):  ##HW
+        super().__init__(*args, **kwargs)  ##HW
+        self.skill_id = skill_id
      
 
     # def __init__(self):
@@ -43,6 +44,11 @@ class OVOSRasaSkill(OVOSSkill):
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
     #   self.learning = True
 
+        if self.skill_id and bus:
+            self._startup(bus, self.skill_id)
+            
+    def initialize(self):
+        
     @property
     @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
