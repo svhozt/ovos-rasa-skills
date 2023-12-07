@@ -32,8 +32,8 @@ class RasaSocketClient:
 
 class OVOSRasaSkill(OVOSSkill):
       
-    def initialize(self):
-    #def __init__(self, *args, **kwargs):  ##HW
+    #def initialize(self):
+    def initialize(self, *args, **kwargs):  ##HW
         super().__init__(*args, **kwargs)  ##HW
      
 
