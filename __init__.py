@@ -31,12 +31,12 @@ class RasaSocketClient:
 
 
 class OVOSRasaSkill(OVOSSkill):
-    def __init__(self):
-        super().__init__('OVOSRasaSkill')
+    # def __init__(self):
+    #     super().__init__('OVOSRasaSkill')
     
     # def initialize(self):
-    # def __init__(self, *args, **kwargs):  ##HW
-        # super().__init__(*args, **kwargs)  ##HW
+    def __init__(self, *args, **kwargs):  ##HW
+        super().__init__(*args, **kwargs)  ##HW
         """The __init__ method is called when the Skill is first constructed.
         Note that self.bus, self.skill_id, self.settings, and
         other base class settings are only available after the call to super().
