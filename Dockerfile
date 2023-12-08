@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.vendor="Open Voice OS"
 ARG ALPHA=false
 
 RUN if [ "${ALPHA}" == "true" ]; then \
-    pip3 install https://github.com/ravindukathri/ovos-rasa-skill.git; \
+    pip3 install git+https://github.com/ravindukathri/ovos-rasa-skill.git; \
     fi \
     && rm -rf "${HOME}/.cache"
 
