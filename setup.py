@@ -7,7 +7,7 @@ from os import getenv, path, walk
 
 URL = "https://github.com/ravindukathri/ovos-rasa-skill"
 SKILL_CLAZZ = "OVOSRasaSkill"  # needs to match __init__.py class name
-PYPI_NAME = "ovos-skill-rasa"  # pip install PYPI_NAME  ##Changed from ovos_rasa_skill
+PYPI_NAME = "ovos-rasa-skill"  # pip install PYPI_NAME  ##Changed from ovos_rasa_skill
 
 # below derived from github url to ensure standard skill_id
 SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
