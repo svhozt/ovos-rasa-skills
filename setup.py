@@ -2,7 +2,7 @@
 import os
 
 from setuptools import setup
-from os import walk, path
+from os import getenv, path, walk
 
 
 URL = "https://github.com/ravindukathri/ovos-rasa-skill"
@@ -13,11 +13,12 @@ PYPI_NAME = "ovos-skill-rasa"  # pip install PYPI_NAME  ##Changed from ovos_rasa
 SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
 SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
+BASE_PATH = path.abspath(path.dirname(__file__))
+
 
 def find_resource_files():
     resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "res")
-    base_dir = BASE_PATH
+    base_dir = path.dirname(__file__)
     package_data = ["skill.json"]
     for res in resource_base_dirs:
         if path.isdir(path.join(base_dir, res)):
