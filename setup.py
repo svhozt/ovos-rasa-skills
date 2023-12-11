@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-
 from setuptools import setup
 from os import getenv, path, walk
 
