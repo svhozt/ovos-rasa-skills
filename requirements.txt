@@ -4,7 +4,3 @@ ovos-plugin-manager>=0.0.19
 ovos-utils~=0.0, >=0.0.28a4
 ovos_workshop~=0.0, >=0.0.11a4
 python-socketio
-json_database~=0.5
-neon-utils~=1.2
-combo_lock~=0.2
-ovos-bus-client~=0.0.3
