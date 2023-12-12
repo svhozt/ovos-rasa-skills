@@ -12,7 +12,7 @@ LABEL org.opencontainers.image.documentation="https://openvoiceos.github.io/comm
 LABEL org.opencontainers.image.source="https://github.com/OpenVoiceOS/ovos-docker"
 LABEL org.opencontainers.image.vendor="Open Voice OS"
 
-ARG ALPHA=false
+ARG ALPHA=true
 
 RUN if [ "${ALPHA}" == "true" ]; then \
     pip3 install git+https://github.com/ravindukathri/ovos-rasa-skill.git; \
