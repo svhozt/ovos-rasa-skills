@@ -16,9 +16,9 @@ BASE_PATH = path.abspath(path.dirname(__file__))
 
 
 def find_resource_files():
-    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "res")
+    resource_base_dirs = ("locale")
     base_dir = path.dirname(__file__)
-    package_data = ["skill.json"]
+    package_data = ["*.json"]
     for res in resource_base_dirs:
         if path.isdir(path.join(base_dir, res)):
             for (directory, _, files) in walk(path.join(base_dir, res)):
