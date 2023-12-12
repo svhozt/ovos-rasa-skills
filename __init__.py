@@ -34,23 +34,25 @@ class OVOSRasaSkill(OVOSSkill):
 
     def initialize(self):
         # Update this URL to point to your Rasa server
-        self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
-
-    @intent_handler('ask_rasa.intent')
+        self.rasa_client = RasaSocketClient("http://0.0.0.0:5005")  #http://host.docker.internal:5005
+    
+    @property
+    @intent_handler(IntentBuilder('ask_rasa').require('TalkToRasa'))
     def handle_ask_rasa_intent(self, message):
         user_utterance = message.data.get('utterance')
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
         self.speak(rasa_response)
-    
-    # def initialize(self):
-    #     self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
-    # @property
-    # @intent_handler(IntentBuilder('askrasa').require('TalkToRasa'))
+    # @intent_handler('ask_rasa.intent')
     # def handle_ask_rasa_intent(self, message):
     #     user_utterance = message.data.get('utterance')
     #     rasa_response = self.rasa_client.send_to_rasa(user_utterance)
     #     self.speak(rasa_response)
+    
+    # def initialize(self):
+    #     self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
+
+    
 
 
 
