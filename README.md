@@ -6,7 +6,7 @@ ovos_rasa_skill:
     hostname: ovos_rasa_skill
     restart: unless-stopped
     build:
-      context: ../skills/rasa-skill
+      context: ../skills/ovos-rasa-skill
       dockerfile: Dockerfile
     logging: *default-logging
     pull_policy: $PULL_POLICY
