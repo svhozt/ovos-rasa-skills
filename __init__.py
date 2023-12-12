@@ -32,8 +32,7 @@ class RasaSocketClient:
 
 class OVOSRasaSkill(OVOSSkill):
 
-    def __init__(self):
-        super(RasaSkill, self).__init__("RasaSkill")
+    def initialize(self):
         # Update this URL to point to your Rasa server
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
