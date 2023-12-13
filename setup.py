@@ -4,7 +4,7 @@ from setuptools import setup
 from os import getenv, path, walk
 
 
-URL = "https://github.com/ravindukathri/ovos-rasa-skill"
+URL = "https://github.com/svhozt/ovos-rasa-skill"
 SKILL_CLAZZ = "OVOSRasaSkill"  # needs to match __init__.py class name
 PYPI_NAME = "ovos-rasa-skill"  # pip install PYPI_NAME 
 
